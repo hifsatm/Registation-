@@ -1,0 +1,49 @@
+This code is a smart contract written in Solidity, a programming language used for developing smart contracts on the Ethereum blockchain. The contract is named "Registration" and it provides a mechanism for registering different entities such as banks, data owners, and data requestors.
+
+Here's a breakdown of the code:
+
+1. Pragma Statement: pragma solidity 0.6.0; specifies the version of the Solidity compiler to be used.
+
+2. Contract Definition: contract Registration { ... } defines the smart contract named "Registration".
+
+3. State Variables: The contract declares several state variables using mapping and address data types to store information about different entities. The variables include:
+
+	mapping(address => bool) Bank: Tracks registered banks.
+	mapping(address => bool) DataOwner: Tracks registered data owners.
+	mapping(address => bool) DataRequestor: Tracks registered data requestors.
+	mapping(address => uint) Bank_LIC: Stores the license numbers of registered banks.
+	mapping(address => uint) DataOwner_LIC: Stores the license numbers of registered data owners.
+	mapping(address => uint) DataRequestor_LIC: Stores the license numbers of registered data 	requestors.
+
+4. address owner: Stores the address of the contract owner.
+Modifier: The contract defines a modifier onlyOwner which restricts certain functions to be callable only by the contract owner. The modifier checks if the caller (msg.sender) is the same as the contract owner's address.
+
+5. Constructor: The contract has a constructor function that is executed once during contract deployment. It initializes the contract owner with the address of the deployer.
+
+6. Registration Functions: The contract provides three registration functions:
+
+7. register_Bank: Allows the contract owner to register a bank by specifying its address and license number.
+
+8. register_DataOwner: Allows the contract owner to register a data owner by specifying its address and license number.
+
+9. register_DataRequestor: Allows the contract owner to register a data requestor by specifying its address and license number.
+
+These functions update the respective mappings and check for duplicate registrations or invalid license numbers.
+
+10. Query Functions: The contract includes several functions to query the state of the contract:
+
+11. isOwner: Checks if the provided address is the owner of the contract.
+
+12. BankExists: Checks if the provided address corresponds to a registered bank.
+
+13. DataOwnerExists: Checks if the provided address corresponds to a registered data owner.
+
+14. DataRequestorExists: Checks if the provided address corresponds to a registered data requestor.
+
+15. BanklicenceisValid: Checks if the license number for a given bank address is valid (not equal to 0 or 777).
+
+16. DataOwnerlicenceisValid: Checks if the license number for a given data owner address is valid.
+
+17. DataRequestorlicenceisValid: Checks if the license number for a given data requestor address is valid.
+
+These functions allow querying the contract to determine the registration status and license validity for different entities.
